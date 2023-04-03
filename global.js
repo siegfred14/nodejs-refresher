@@ -15,6 +15,15 @@ setTimeout(() => {
   clearInterval(int);
 }, 3000);
 
-const int = setInterval(() => {
-  console.log("testing the interval");
-}, 1000);
+// setInterval
+// const int = setInterval(() => {
+//   console.log("testing the interval");
+// }, 1000);
+
+// the __dirname and the __filename
+
+// the __dirname returns the absolute path of the current folder where the file exists
+console.log(__dirname);
+
+// the __filename returns the absolute path of the current folder where the file exists with the filename
+console.log(__filename);
