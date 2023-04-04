@@ -48,20 +48,31 @@ fs.writeFile("./docs/test_file2.txt", "Salut Quebecoise et Quebecois", () => {
 // NB: this is for only directories, not files
 
 // to avoid error of attempting to create an existing directory,
-if (!fs.existsSync("./assests")) {
-  fs.mkdir("./assests", (err) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log("new folder created");
-  });
-} else {
-  fs.rmdir("./assests", (err) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log("assets folder deleted");
-  });
-}
+// if (!fs.existsSync("./assests")) {
+//   fs.mkdir("./assests", (err) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//     console.log("new folder created");
+//   });
+// } else {
+//   // alert('Directory exists already');
+//   fs.rmdir("./assests", (err) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//     console.log("assets folder deleted");
+//   });
+// }
 
 // DELETING FILES
+// to delete, we check if the file exists already
+
+if (fs.existsSync("./docs/deleteTest.txt")) {
+  fs.unlink("./docs/deleteTest.txt", (err) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("file deleted");
+  });
+}
