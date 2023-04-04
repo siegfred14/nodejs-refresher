@@ -35,4 +35,33 @@ fs.writeFile("./docs/test_file2.txt", "Salut Quebecoise et Quebecois", () => {
 });
 
 // DIRECTORIES
+// if you were to create a directory, it would have 2 parts
+// 1. the path and name of the directory
+// 2. A callback function, which takes err as a parameter in case
+
+// fs.mkdir("./assests", (err) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log("new folder created");
+// });
+// NB: this is for only directories, not files
+
+// to avoid error of attempting to create an existing directory,
+if (!fs.existsSync("./assests")) {
+  fs.mkdir("./assests", (err) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("new folder created");
+  });
+} else {
+  fs.rmdir("./assests", (err) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("assets folder deleted");
+  });
+}
+
 // DELETING FILES
