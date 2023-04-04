@@ -23,4 +23,6 @@ console.log(people, ages);
 
 // IMPORTING BUILT-IN NODEJS MODULES FOR ADDED FUNCTIONALIY
 const os = require("os");
-console.log(os);
+// console.log(os);
+console.log(os.platform(), os.homedir());
+// to show os version and user
