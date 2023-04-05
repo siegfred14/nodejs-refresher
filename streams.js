@@ -16,18 +16,18 @@ const readStream = fs.createReadStream("./docs/streams.txt", {
 
 const writeStream = fs.createWriteStream("./docs/streams2.txt"); // create the write stream
 
-// readStream.on("data", (chunk) => {
-//   console.log(`.....new chunk.... \n`);
-//   console.log(chunk); // note that "chunk" could be any name
-// });
+readStream.on("data", (chunk) => {
+  console.log(`.....new chunk.... \n`);
+  console.log(chunk); // note that "chunk" could be any name
+});
 
 // .on is an event listener
 
 // to convert streams to string, we use
-// readStream.on("data", (chunk) => {
-//   console.log(`.....new chunk.... \n`);
-//   console.log(chunk.toString());
-// });
+readStream.on("data", (chunk) => {
+  console.log(`.....new chunk.... \n`);
+  console.log(chunk.toString());
+});
 
 // alternative method of conversion to string is to add encoding type on line 12
 
@@ -41,3 +41,7 @@ readStream.on("data", (chunk) => {
   writeStream.write("\n.....NEW CHUNK.....");
   writeStream.write(chunk);
 });
+
+// alternative to this is piping
+// whatever we read, we write to the new file
+readStream.pipe(writeStream);
