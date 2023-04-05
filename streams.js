@@ -14,10 +14,12 @@ const readStream = fs.createReadStream("./docs/streams.txt", {
   encoding: "utf8",
 });
 
-readStream.on("data", (chunk) => {
-  console.log(`.....new chunk.... \n`);
-  console.log(chunk); // note that "chunk" could be any name
-});
+const writeStream = fs.createWriteStream("./docs/streams2.txt"); // create the write stream
+
+// readStream.on("data", (chunk) => {
+//   console.log(`.....new chunk.... \n`);
+//   console.log(chunk); // note that "chunk" could be any name
+// });
 
 // .on is an event listener
 
@@ -28,3 +30,14 @@ readStream.on("data", (chunk) => {
 // });
 
 // alternative method of conversion to string is to add encoding type on line 12
+
+// TO WRITE STREAM
+// Import as illustrated in 17
+
+// then
+readStream.on("data", (chunk) => {
+  console.log(`.....new chunk.... \n`);
+  console.log(chunk); // note that "chunk" could be any name
+  writeStream.write("\n.....NEW CHUNK.....");
+  writeStream.write(chunk);
+});
