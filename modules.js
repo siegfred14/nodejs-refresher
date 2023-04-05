@@ -2,12 +2,12 @@
 const xyz = require("./peoples");
 
 // running clg indicates that xyz however is an empty object
-// console.log(xyz); // returns an empty array
+console.log(xyz); // returns an empty array
 
 // running people indicates that xyz however is an empty object
 // Just because we import a file doesn't automatically grant us access to it's contents
 
-// console.log(peoples); // returns undefined
+console.log(peoples); // returns undefined
 
 // to access the contents of people, we have to manually export
 // to do this, we use module.export = 'anything' in the parent module
@@ -24,5 +24,7 @@ console.log(people, ages);
 // IMPORTING BUILT-IN NODEJS MODULES FOR ADDED FUNCTIONALIY
 const os = require("os");
 // console.log(os);
-console.log(os.platform(), os.homedir());
-// to show os version and user
+console.log(os.platform(), os.homedir()); // to show os version and user
+
+// There are different core modules in nodejs
+// os is one, file system is another
