@@ -16,3 +16,13 @@ const server = http.createServer(() => {
 server.listen(3000, "localhost", () => {
   console.log("listening for request on port 3000");
 });
+
+// Localhost
+// This is like a domain name on the web
+// takes us to a special IP address called a loop back IP address
+// it is 127.0.0.1 and it points directly back to own computer
+
+// Port Number
+// represents a specific channel, gateway or port
+// they are like doors on a computer through which communication can be made to different programs like discord. skype, teams
+// Our server needs it's own port as well
