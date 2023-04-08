@@ -28,9 +28,27 @@ const http = require("http");
 // Our server needs it's own port as well
 
 // Everytime we make a change, we need to restart our server
+// const server = http.createServer((req, res) => {
+//   // console.log(req);
+//   console.log(req.url, req.method);
+// });
+
+// server.listen(3000, "localhost", () => {
+//   console.log("listening for request on port 3000");
+// });
+
+// Response
+// We formulate response headers which give the browser
+// a little more info about what kind of response is coming back to it.
+
 const server = http.createServer((req, res) => {
-  // console.log(req);
   console.log(req.url, req.method);
+
+  // Set header content type (3 steps)
+  res.setHeader("Content-Type", "text/plain");
+
+  res.write("Bienvenue Siegfreds");
+  res.end();
 });
 
 server.listen(3000, "localhost", () => {
