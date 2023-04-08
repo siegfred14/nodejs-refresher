@@ -6,7 +6,7 @@
 const http = require("http");
 
 const server = http.createServer(() => {
-  console.log("response made");
+  console.log("request made");
 });
 // in the callback, we get access to two objects
 // 1. the request object (comest with info such as the url, request type: get, post..)
