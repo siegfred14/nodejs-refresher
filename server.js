@@ -5,17 +5,17 @@
 
 const http = require("http");
 
-const server = http.createServer(() => {
-  console.log("request made");
-});
+// const server = http.createServer((req, res) => {
+//   console.log("request made");
+// });
 // in the callback, we get access to two objects
 // 1. the request object (comest with info such as the url, request type: get, post..)
 // 2. the response object (used to send a response to the client)
 
 // To listen to the request made
-server.listen(3000, "localhost", () => {
-  console.log("listening for request on port 3000");
-});
+// server.listen(3000, "localhost", () => {
+//   console.log("listening for request on port 3000");
+// });
 
 // Localhost
 // This is like a domain name on the web
@@ -26,3 +26,12 @@ server.listen(3000, "localhost", () => {
 // represents a specific channel, gateway or port
 // they are like doors on a computer through which communication can be made to different programs like discord. skype, teams
 // Our server needs it's own port as well
+
+// Everytime we make a change, we need to restart our server
+const server = http.createServer((req, res) => {
+  console.log(req);
+});
+
+server.listen(3000, "localhost", () => {
+  console.log("listening for request on port 3000");
+});
