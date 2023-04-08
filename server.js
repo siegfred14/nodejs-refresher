@@ -29,7 +29,8 @@ const http = require("http");
 
 // Everytime we make a change, we need to restart our server
 const server = http.createServer((req, res) => {
-  console.log(req);
+  // console.log(req);
+  console.log(req.url, req.method);
 });
 
 server.listen(3000, "localhost", () => {
