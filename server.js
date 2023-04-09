@@ -41,13 +41,25 @@ const http = require("http");
 // We formulate response headers which give the browser
 // a little more info about what kind of response is coming back to it.
 
+// const server = http.createServer((req, res) => {
+//   console.log(req.url, req.method);
+
+//   // Set header content type (3 steps)
+//   res.setHeader("Content-Type", "text/plain");
+
+//   res.write("Bienvenue Siegfreds");
+//   res.end();
+// });
+
+// Sending html instead of plain text
 const server = http.createServer((req, res) => {
   console.log(req.url, req.method);
 
   // Set header content type (3 steps)
-  res.setHeader("Content-Type", "text/plain");
+  res.setHeader("Content-Type", "text/html");
 
-  res.write("Bienvenue Siegfreds");
+  res.write("<p>Bienvenue au Canada Siegfreds</p>");
+  res.write("<p>Bienvenue a Quebec Siegfreds</p>");
   res.end();
 });
 
