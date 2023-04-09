@@ -51,16 +51,37 @@ const http = require("http");
 //   res.end();
 // });
 
-// Sending html instead of plain text
+// ------- Sending html instead of plain text -------
+// const server = http.createServer((req, res) => {
+//   console.log(req.url, req.method);
+
+//   // Set header content type (3 steps)
+//   res.setHeader("Content-Type", "text/html");
+
+//   res.write("<p>Bienvenue au Canada Siegfreds</p>");
+//   res.write("<p>Bienvenue a Quebec Siegfreds</p>");
+//   res.end();
+// });
+
+// ------- Sending html files/docs instead of text -------
+// 1. we import the file system
+const fs = require("fs");
+
 const server = http.createServer((req, res) => {
   console.log(req.url, req.method);
 
-  // Set header content type (3 steps)
+  // 2. Set header content type
   res.setHeader("Content-Type", "text/html");
-
-  res.write("<p>Bienvenue au Canada Siegfreds</p>");
-  res.write("<p>Bienvenue a Quebec Siegfreds</p>");
-  res.end();
+  // 3. read the file and callback required action
+  fs.readFile("./views/index.html", (err, data) => {
+    if (err) {
+      console.log(err);
+      res.end(); // So it doesn't keep hanging when there is an error
+    } else {
+      res.write(data);
+      res.end();
+    }
+  });
 });
 
 server.listen(3000, "localhost", () => {
