@@ -67,19 +67,60 @@ const http = require("http");
 // 1. we import the file system
 const fs = require("fs");
 
+// const server = http.createServer((req, res) => {
+//   console.log(req.url, req.method);
+
+//   // 2. Set header content type
+//   res.setHeader("Content-Type", "text/html");
+//   // 3. read the file and callback required action
+//   fs.readFile("./views/index.html", (err, data) => {
+//     if (err) {
+//       console.log(err);
+//       res.end(); // So it doesn't keep hanging when there is an error
+//     } else {
+//       res.write(data);
+//       res.end();
+//       //  alternatively, if we are sending just one data, we could replace both lines with
+//       res.end(data);
+//     }
+//   });
+// });
+
+// ....... BASIC ROUTING -------
+// Here we want every path to link to a distinct page
+
 const server = http.createServer((req, res) => {
   console.log(req.url, req.method);
 
-  // 2. Set header content type
   res.setHeader("Content-Type", "text/html");
-  // 3. read the file and callback required action
-  fs.readFile("./views/index.html", (err, data) => {
+
+  // 1. we define the general path
+  let path = "./views/";
+
+  // 2. we use a switch statement to evaluate possible cases of slashes
+  switch (req.url) {
+    case "/":
+      path += "index.html";
+      break;
+    case "/about":
+      path += "about.html";
+      break;
+    case "/contact":
+      path += "contact.html";
+      break;
+
+    default:
+      path += "404.html";
+      break;
+  }
+
+  fs.readFile(path, (err, data) => {
+    //now we replace the hard coded address with path
     if (err) {
       console.log(err);
-      res.end(); // So it doesn't keep hanging when there is an error
-    } else {
-      res.write(data);
       res.end();
+    } else {
+      res.end(data);
     }
   });
 });
