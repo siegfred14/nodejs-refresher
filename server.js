@@ -89,45 +89,45 @@ const fs = require("fs");
 // ....... BASIC ROUTING -------
 // Here we want every path to link to a distinct page
 
-const server = http.createServer((req, res) => {
-  console.log(req.url, req.method);
+// const server = http.createServer((req, res) => {
+//   console.log(req.url, req.method);
 
-  res.setHeader("Content-Type", "text/html");
+//   res.setHeader("Content-Type", "text/html");
 
-  // 1. we define the general path
-  let path = "./views/";
+//   // 1. we define the general path
+//   let path = "./views/";
 
-  // 2. we use a switch statement to evaluate possible cases of slashes
-  switch (req.url) {
-    case "/":
-      path += "index.html";
-      break;
-    case "/about":
-      path += "about.html";
-      break;
-    case "/contact":
-      path += "contact.html";
-      break;
+//   // 2. we use a switch statement to evaluate possible cases of slashes
+//   switch (req.url) {
+//     case "/":
+//       path += "index.html";
+//       break;
+//     case "/about":
+//       path += "about.html";
+//       break;
+//     case "/contact":
+//       path += "contact.html";
+//       break;
 
-    default:
-      path += "404.html";
-      break;
-  }
+//     default:
+//       path += "404.html";
+//       break;
+//   }
 
-  fs.readFile(path, (err, data) => {
-    //now we replace the hard coded address with path
-    if (err) {
-      console.log(err);
-      res.end();
-    } else {
-      res.end(data);
-    }
-  });
-});
+//   fs.readFile(path, (err, data) => {
+//     //now we replace the hard coded address with path
+//     if (err) {
+//       console.log(err);
+//       res.end();
+//     } else {
+//       res.end(data);
+//     }
+//   });
+// });
 
-server.listen(3000, "localhost", () => {
-  console.log("listening for request on port 3000");
-});
+// server.listen(3000, "localhost", () => {
+//   console.log("listening for request on port 3000");
+// });
 
 // STATUS CODES
 // Status codes describe the type of response sent to the browser
@@ -144,3 +144,48 @@ server.listen(3000, "localhost", () => {
 // 300 range - codes for redirect
 // 400 range - user or client error codes
 // 500 range - server error codes
+
+// Adding status codes to our example above
+const server = http.createServer((req, res) => {
+  console.log(req.url, req.method);
+
+  res.setHeader("Content-Type", "text/html");
+
+  let path = "./views/";
+
+  switch (req.url) {
+    case "/":
+      path += "index.html";
+      res.statusCode = 200;
+      break;
+    case "/about":
+      path += "about.html";
+      res.statusCode = 200;
+      break;
+    case "/contact":
+      path += "contact.html";
+      res.statusCode = 200;
+      break;
+
+    default:
+      path += "404.html";
+      res.statusCode = 404;
+      break;
+  }
+
+  fs.readFile(path, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.end();
+    } else {
+      // we could add our status code here but it will persist for all cases
+      // so it's best we add to each cases above
+      //   res.statusCode = 200;
+      res.end(data);
+    }
+  });
+});
+
+server.listen(3000, "localhost", () => {
+  console.log("listening for request on port 3000");
+});
