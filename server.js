@@ -128,3 +128,19 @@ const server = http.createServer((req, res) => {
 server.listen(3000, "localhost", () => {
   console.log("listening for request on port 3000");
 });
+
+// STATUS CODES
+// Status codes describe the type of response sent to the browser
+// and how successful the request was
+
+// 200 - OK
+// 301 - Resource moved
+// 404 - Not found
+// 500 - Internal server error
+
+// we have different ranges
+// 100 range - information responses
+// 200 range - success codes
+// 300 range - codes for redirect
+// 400 range - user or client error codes
+// 500 range - server error codes
