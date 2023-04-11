@@ -189,3 +189,12 @@ const server = http.createServer((req, res) => {
 server.listen(3000, "localhost", () => {
   console.log("listening for request on port 3000");
 });
+
+// REDIRECTS
+// Take for instance, we update the about_me to about me page, our website
+// works fine. but for thousands of others that redirect to this page,
+// they'll encouter a 404 error.
+// To fix this, we add another case to our switch statement with '/about-me'
+// enter a 301 status code
+// remove path and setHeader to a response like
+// res.setHeader('Location', '/about') as illustrated in 165 - 168
