@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/siegfred14/nodejs-refresher/issues"
   },
-  "homepage": "https://github.com/siegfred14/nodejs-refresher#readme"
+  "homepage": "https://github.com/siegfred14/nodejs-refresher#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }
