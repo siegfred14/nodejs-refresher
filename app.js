@@ -6,8 +6,8 @@ const app = express();
 // listen for requests
 app.listen(3000);
 
-app.get("/", (req, res) => {
-  res.send("<p>Home Page</p>");
+app.get("/contact", (req, res) => {
+  //   res.send("<p>Contact Page</p>");
   //This replaces res.write, and automatically detects the content type, hence no need for setHeader
   // It also automatically infers the status code (200, 301, 404)
 });
@@ -24,10 +24,15 @@ app.get("/", (req, res) => {
 
 //   Or to respond with a file
 // we must specify the root, else it would search file from computer default root
-app.get("/about", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile("./views/index.html", { root: __dirname });
 });
-app.get("/contact", (req, res) => {
-  res.sendFile("./views/contact.html", { root: __dirname });
+app.get("/about", (req, res) => {
+  res.sendFile("./views/about.html", { root: __dirname });
 });
 //   another way is to use the core module to join the pathname with the root
+
+// Redirects
+app.get("/about-us", (req, res) => {
+  res.redirect("/about");
+});
