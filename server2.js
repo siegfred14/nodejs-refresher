@@ -7,6 +7,21 @@ const server = http.createServer((req, res) => {
   const num = _.random(0, 20);
   console.log(num);
 
+  //   setting a function to run once with lodash
+  // normal function
+  const greet = () => {
+    console.log("Hello");
+  };
+
+  // To run once with lodash
+  const greet1 = _.once(() => {
+    console.log("Hello");
+  });
+
+  greet1();
+  greet1();
+  //   this does not allow us to call the function more than once
+
   //   set header content type
   res.setHeader("Content-Type", "text/html");
 
