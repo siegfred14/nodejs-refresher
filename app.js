@@ -41,4 +41,8 @@ app.get("/about-us", (req, res) => {
 app.use((req, res) => {
   res.sendFile("./views/404.html", { root: __dirname });
 });
-// We use this function to create and fire middleware in express
+// We use this function "use" to create and fire middleware in express
+// the use funtion is going to fire for every request,
+// If it finds a get request that matches, it sends this to the browser
+// If it does not, it continues down
+// if the request reaches this point of the code, only then will it send the 404
