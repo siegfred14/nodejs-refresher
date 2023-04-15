@@ -38,11 +38,18 @@ app.get("/about-us", (req, res) => {
 });
 
 // 404 page
-app.use((req, res) => {
-  res.sendFile("./views/404.html", { root: __dirname });
-});
+// app.use((req, res) => {
+//   res.sendFile("./views/404.html", { root: __dirname });
+// });
 // We use this function "use" to create and fire middleware in express
 // the use funtion is going to fire for every request,
 // If it finds a get request that matches, it sends this to the browser
 // If it does not, it continues down
 // if the request reaches this point of the code, only then will it send the 404
+// So, since it workes with FIFO, the error code must be at the bottom, else it
+// fires before the required get request.
+
+// Now, this is not enough to tell the console that this is an error. we need to manually specify
+app.use((req, res) => {
+  res.status(404).sendFile("./views/404.html", { root: __dirname });
+});
