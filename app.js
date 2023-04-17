@@ -3,6 +3,10 @@ const express = require("express");
 // The express app
 const app = express();
 
+// Register view engine
+app.set("vew engine", "ejs");
+app.set("views", "newViews"); //setting a different view folder for express
+
 // listen for requests
 app.listen(3000);
 
