@@ -7,8 +7,15 @@
     <title>Siegfred Blog</title>
 </head>
 <body>
+
+    <!-- To create dynamic content, we use ejs tags -->
+    <!-- this is by writing our code inbetween <% %> -->
+    <!-- This will run as dynamic code on the server -->
+    <% const name = 'mario' %>
+
     <nav>
         <div>
+            <p><%= name%></p>   <!-- outputing a dynamic content. we add '=' if it's a single value -->
             <a href="/"><h1>blog Siegfred</h1></a>
             <p>A Siegfred Website</p>
         </div>
