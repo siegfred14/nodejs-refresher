@@ -11,7 +11,13 @@ app.set("view engine", "ejs");
 app.listen(3000);
 
 app.get("/", (req, res) => {
-  res.render("index", { title: "Home" }); // pass an object for multiple data info
+  const blogs = [
+    { title: "Yoshi finds eggs", snippet: "Lorem ipsum dolor sit amet." },
+    { title: "Mario finds stars", snippet: "Lorem ipsum dolor sit amet." },
+    { title: "Defeat bowser again ", snippet: "Lorem ipsum dolor sit amet." },
+  ];
+
+  res.render("index", { title: "Home", blogs: blogs }); // pass an object for multiple data info
 });
 
 app.get("/about", (req, res) => {
@@ -19,7 +25,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/blogs/create", (req, res) => {
-  res.render("create", { title: "Create" });
+  res.render("create", { title: "Create a blog" });
 });
 
 // 404 page
