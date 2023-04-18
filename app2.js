@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 
 // Register view engine
-app.set("vew engine", "ejs");
+app.set("view engine", "ejs");
 // app.set("views", "newViews"); //setting a different view folder for express
 
 // listen for requests
