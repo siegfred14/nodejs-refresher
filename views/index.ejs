@@ -11,7 +11,7 @@
     <!-- To create dynamic content, we use ejs tags -->
     <!-- this is by writing our code inbetween <% %> -->
     <!-- This will run as dynamic code on the server -->
-    <% const name = 'mario' %>
+    <!-- <% const name = 'mario' %> -->
 
     <!-- <nav>
         <div>
@@ -25,14 +25,14 @@
             <li><a href="/blogs/create">New Blog</a></li>
         </ul>
     </nav> -->
-    
-    <%- include('./partials/nav.ejs')%>
+
+    <%- include('./partials/nav.ejs') %>
     <!-- When we use '=', we escape certain special characters
         and end up with string values instead of raw HTML 
         so when we use include, we use '-' instead-->
 
     <div class="blog-content">
-        <h2>All Blogs</h2>
+        <h2>All Blogs</h2> 
 
         <% if (blogs.length > 0) {%>
             <% blogs.forEach(blog =>{%>
