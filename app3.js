@@ -32,3 +32,6 @@ app.get("/blogs/create", (req, res) => {
 app.use((req, res) => {
   res.status(404).render("404", { title: "Error Page" });
 });
+
+// EJS Templates are processed through the EJS view engine on the server
+// The view engine picks dynamic content, processes it the outputs it to the browser as normanl HTML
