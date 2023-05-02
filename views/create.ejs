@@ -19,10 +19,10 @@
             <li><a href="/blogs/create">New Blog</a></li>
         </ul>
     </nav> -->
-    <!-- <%- include('./partials/nav.ejs')%> -->
+    <%- include('./partials/nav.ejs')%>
 
-    <div class="blog-content">
-        <form action="">
+    <div class="blog content">
+        <form action="" class="create-blog">
             <label for="title">Blog Title</label>
             <input type="text" id="title" required>
 
@@ -35,7 +35,7 @@
             <button>Submit</button>
         </form>
     </div>
-    
+
     <!-- footer -->
     <%- include('./partials/footer.ejs') %>
 </body>
