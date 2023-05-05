@@ -10,11 +10,22 @@ app.set("view engine", "ejs");
 // listen for requests
 app.listen(3000);
 
-app.use((req, res) => {
+// MIDDLEWARE
+// sending a response with these for each request
+// app.use((req, res) => {
+//   console.log("new request made");
+//   console.log("host: ", req.hostname);
+//   console.log("host: ", req.path);
+//   console.log("host: ", req.method);
+// });
+// With the above, after the function has been run, the pages get's stuck loading
+// to tell the middleware to move to the next function, we use the function 'next'
+app.use((req, res, next) => {
   console.log("new request made");
   console.log("host: ", req.hostname);
   console.log("host: ", req.path);
   console.log("host: ", req.method);
+  next();
 });
 
 app.get("/", (req, res) => {
