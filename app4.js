@@ -28,6 +28,12 @@ app.use((req, res, next) => {
   next();
 });
 
+// Testing the 'next' function in the middleware
+app.use((req, res, next) => {
+  console.log("in the next middleware");
+  next();
+});
+
 app.get("/", (req, res) => {
   const blogs = [
     { title: "Yoshi finds eggs", snippet: "Lorem ipsum dolor sit amet." },
