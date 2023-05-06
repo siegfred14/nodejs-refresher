@@ -1,0 +1,12 @@
+/* if we cannot reference it in the browser like /styles.css, 
+then it cannot be added as a mere link. 
+we must add it as a static file   */
+
+/* The browser protects our fles from users, preventing unauthorized access.
+To allow the browser access to something, we need to specify what files should
+be allowed for accessed. ie, what files should be public */
+
+/* To do this, we can use a middleware from express called "static" middleware in our app file */
+body{
+    background: black;
+}

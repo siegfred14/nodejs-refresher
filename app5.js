@@ -11,9 +11,13 @@ app.set("view engine", "ejs");
 // listen for requests
 app.listen(3000);
 
-// app.use(morgan("dev"));
+// Middleware and staticfiles
+app.use(morgan("dev"));
 // we could use different strings to get different formats
-app.use(morgan("tiny"));
+// app.use(morgan("tiny"));
+
+// static files (see notes in styles.css)
+app.use(express.static("public")); //this makes the contents of the folder 'public' available for the frontend
 
 app.get("/", (req, res) => {
   const blogs = [
